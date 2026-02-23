@@ -2,7 +2,7 @@
   <div class="pastimes-screen">
     <div class="pastimes-container">
       <div class="header-area">
-        <button @click="$emit('close')" class="back-to-deck">← RETURN TO SHIP</button>
+        <button @click="$emit('close')" class="back-to-deck">← Return to Captain's Deck</button>
         <h1 class="pastimes-title">🍖 CREW PASTIMES</h1>
         <p class="subtitle">Even the fiercest captains need time off the battlefield.</p>
       </div>
@@ -65,7 +65,7 @@
         </div>
 
         <div class="media-row">
-          <h3 class="row-title">ANIME LOGS</h3>
+          <h3 class="row-title">MY FAVORITE ANIME</h3>
           <div class="scroll-box">
             <div v-for="item in anime" :key="item.mal_id" class="api-card">
               <img :src="item.images.jpg.large_image_url" :alt="item.title" />
@@ -100,14 +100,16 @@ export default {
         const movieTitles = [
           { t: "The Count of Monte Cristo", y: "2002" },
           { t: "The Notebook", y: "2004" },
-          { t: "Amadeus", y: "1984" }
+          { t: "Amadeus", y: "1984" },
+          { t: "Interstellar", y: "2014" },
+          { t: "Kimi no Nawa", y: "2016" }
         ];
         const moviePromises = movieTitles.map(m => 
           fetch(`https://www.omdbapi.com/?apikey=${this.OMDB_KEY}&t=${encodeURIComponent(m.t)}&y=${m.y}`).then(res => res.json())
         );
         this.movies = await Promise.all(moviePromises);
 
-        const animeTitles = ["Baccano!", "Capeta", "Steins;Gate"];
+        const animeTitles = ["Baccano!", "Capeta", "Steins;Gate", "Shingeki No Kyojin", "One Piece"];
         for (const title of animeTitles) {
           const res = await fetch(`https://api.jikan.moe/v4/anime?q=${encodeURIComponent(title)}&limit=1`);
           const json = await res.json();

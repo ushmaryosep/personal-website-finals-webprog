@@ -144,7 +144,7 @@
               <img src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/apcpic1.png?raw=true" class="expedition-pic" />
             </div>
           </div>
-          <button @click="currentView = 'menu'" class="back-to-menu-training">← BACK TO NAV NAVI</button>
+          <button @click="currentView = 'menu'" class="back-to-menu-training">← BACK TO Captain's Deck</button>
         </div>
       </div>
     </transition>
@@ -162,7 +162,7 @@
               </p>
               <p>I believe technology is power — and power, when guided by purpose, can change lives. This is only the beginning of my voyage.</p>
             </div>
-            <button @click="currentView = 'menu'" class="back-to-menu">← BACK TO NAV NAVI</button>
+            <button @click="currentView = 'menu'" class="back-to-menu">← BACK TO Captain's Deck</button>
           </div>
 
           <div class="carousel-section">
