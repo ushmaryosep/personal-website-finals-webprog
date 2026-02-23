@@ -126,7 +126,7 @@ export default {
   display: flex; justify-content: flex-start; align-items: center; 
   padding: 0 4%;
   background: linear-gradient(to right, rgba(0,0,0,0.85) 25%, rgba(0,0,0,0.1) 100%), 
-              url('https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/final%20bg.gif?raw=true') no-repeat center center;
+              url('https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/final%20bg.gif') no-repeat center center;
   background-size: cover;
   z-index: 70;
 }

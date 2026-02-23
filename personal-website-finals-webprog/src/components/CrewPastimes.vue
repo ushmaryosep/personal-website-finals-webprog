@@ -138,7 +138,7 @@ export default {
 .pastimes-screen {
   position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
   background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), 
-              url('https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/BG%203.gif?raw=true');
+              url('https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/BG%203.gif');
   background-size: cover; z-index: 100; overflow-y: auto; color: white;
 }
 

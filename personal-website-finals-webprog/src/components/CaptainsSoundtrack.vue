@@ -102,7 +102,7 @@ export default {
   position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;
   display: flex; justify-content: center; align-items: center; z-index: 60; padding: 40px;
   /* Updated Background to your GIF */
-  background: url('https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/green%20bg%20for%20music.gif?raw=true') no-repeat center center;
+  background: url('https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/green%20bg%20for%20music.gif') no-repeat center center;
   background-size: cover;
 }
 .soundtrack-container {

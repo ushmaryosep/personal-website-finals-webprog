@@ -3,27 +3,27 @@
     
     <div class="bg-container">
       <img src="https://github.com/ushmaryosep/personal-website-finals/blob/main/live%20background.gif?raw=true" class="bg-layer" :class="{ 'visible': currentView === 'main' }"/>
-      <img src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/bg2.gif?raw=true" class="bg-layer" :class="{ 'visible': currentView === 'trap' }"/>
-      <img src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/main%20menu.gif?raw=true" class="bg-layer" :class="{ 'visible': currentView === 'menu' }"/>
-      <img src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/BG%203.gif?raw=true" class="bg-layer" :class="{ 'visible': ['tale', 'training', 'hobbies', 'battle', 'soundtrack'].includes(currentView) }"/>
-      <img src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/final%20bg.gif?raw=true" class="bg-layer" :class="{ 'visible': currentView === 'messenger' }"/>
+      <img src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/bg2.gif" class="bg-layer" :class="{ 'visible': currentView === 'trap' }"/>
+      <img src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/main%20menu.gif" class="bg-layer" :class="{ 'visible': currentView === 'menu' }"/>
+      <img src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/BG%203.gif" class="bg-layer" :class="{ 'visible': ['tale', 'training', 'hobbies', 'battle', 'soundtrack'].includes(currentView) }"/>
+      <img src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/final%20bg.gif" class="bg-layer" :class="{ 'visible': currentView === 'messenger' }"/>
     </div>
 
     <div class="overlay" :class="{ 'trap-active': currentView === 'trap', 'menu-active': ['menu', 'tale', 'training', 'hobbies', 'battle', 'soundtrack', 'messenger'].includes(currentView) }"></div>
 
     <transition name="fade">
-      <img v-if="showPoster || currentView !== 'main'" src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/mylogo.png?raw=true" class="main-logo" @click="resetToHome" alt="Logo"/>
+      <img v-if="showPoster || currentView !== 'main'" src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/mylogo.png" class="main-logo" @click="resetToHome" alt="Logo"/>
     </transition>
 
     <transition name="fade">
       <div v-if="isLoading" class="loading-overlay">
         <template v-if="!isNullifying">
           <h1 class="scam-text">YOU'VE BEEN SCAMMED!</h1>
-          <img src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/loading%20screen.gif?raw=true" alt="Loading..." />
+          <img src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/loading%20screen.gif" alt="Loading..." />
         </template>
         <template v-else>
           <h1 class="nullify-text">EFFECTS NOW NULLIFYING...</h1>
-          <img src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/nullifying%20effects.gif?raw=true" class="nullify-bg" />
+          <img src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/nullifying%20effects.gif" class="nullify-bg" />
         </template>
       </div>
     </transition>
@@ -52,7 +52,7 @@
       <div v-if="currentView === 'trap'" class="trap-view">
         <h1 class="trap-title">HA HA! NEVER TRUST A <span class="red">PIRATE!</span></h1>
         <div class="fruit-container" @click="triggerNullifying">
-          <img src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/FRUIT.png?raw=true" class="devil-fruit" />
+          <img src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/FRUIT.png" class="devil-fruit" />
           <button class="eat-btn">EAT THIS 🍎</button>
         </div>
       </div>
@@ -137,12 +137,12 @@ export default {
       currentView: 'main', currentImgIndex: 0, isLightboxOpen: false,
       carouselTimer: null,
       carouselImages: [
-        'https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/mypic1.png?raw=true',
-        'https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/mypic2.png?raw=true',
-        'https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/mypic3.png?raw=true',
-        'https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/mypic4.png?raw=true',
-        'https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/mypic5.png?raw=true',
-        'https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/mypic6.png?raw=true'
+        'https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/mypic1.png',
+        'https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/mypic2.png',
+        'https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/mypic3.png',
+        'https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/mypic4.png',
+        'https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/mypic5.png',
+        'https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/mypic6.png'
       ]
     }
   },

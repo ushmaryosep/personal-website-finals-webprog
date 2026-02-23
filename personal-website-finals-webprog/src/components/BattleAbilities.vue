@@ -47,7 +47,7 @@ export default {
           category: "LEADERSHIP",
           icon: "🗣️",
           // FIXED LINK BELOW: added ?raw=true and removed unsplash parameters
-          image: "https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/communication.png?raw=true",
+          image: "https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/communication.png",
           description: "A captain must speak clearly. I can present ideas confidently, explain technical concepts simply, and collaborate effectively with teammates."
         },
         {
@@ -78,7 +78,7 @@ export default {
   width: 100vw; 
   height: 100vh;
   background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)), 
-              url('https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/BG%203.gif?raw=true');
+              url('https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/BG%203.gif');
   background-size: cover; 
   z-index: 100; 
   overflow-y: auto; 
