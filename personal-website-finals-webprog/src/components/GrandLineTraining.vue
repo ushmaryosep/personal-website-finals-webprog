@@ -6,7 +6,7 @@
       <div class="training-timeline">
         <div class="training-node">
           <div class="node-header">
-            <img src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/hslbclogo%20(2).png" class="school-logo" />
+            <img src="https://raw.githubusercontent.com/ushmaryosep/personal-website-finals-webprog/main/assets(gif%2C%20png%2C%20jpg)/hslbclogo%20(2).png" class="school-logo" />
             <h2 class="node-title">⚓ Elementary Voyage (2010 – 2017)</h2>
           </div>
           <p class="node-school">HSL – Braille College, Inc.</p>
@@ -15,7 +15,7 @@
         </div>
         <div class="training-node">
           <div class="node-header">
-            <img src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/hslbclogo%20(2).png" class="school-logo" />
+            <img src="https://raw.githubusercontent.com/ushmaryosep/personal-website-finals-webprog/main/assets(gif%2C%20png%2C%20jpg)/hslbclogo%20(2).png" class="school-logo" />
             <h2 class="node-title">⚓ Junior High Expedition (2017 – 2022)</h2>
           </div>
           <p class="node-school">HSL – Braille College, Inc.</p>
@@ -24,23 +24,23 @@
         </div>
         <div class="training-node">
           <div class="node-header">
-            <img src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/hslbclogo%20(2).png" class="school-logo" />
+            <img src="https://raw.githubusercontent.com/ushmaryosep/personal-website-finals-webprog/main/assets(gif%2C%20png%2C%20jpg)/hslbclogo%20(2).png" class="school-logo" />
             <h2 class="node-title">⚓ Senior High Specialization (2022 – 2024)</h2>
           </div>
           <p class="node-school">HSL – Braille College, Inc.</p>
           <p class="node-addr">26C Durian Ext., Pag-Asa Ave., Brgy. Katuparan, Taguig City</p>
           <p class="node-text">The years that shaped my direction — where ambition met clarity, and I chose to sail toward the world of Information Technology.</p>
-          <img src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/hslbcpic1.png" class="expedition-pic" />
+          <img src="https://raw.githubusercontent.com/ushmaryosep/personal-website-finals-webprog/main/assets(gif%2C%20png%2C%20jpg)/hslbcpic1.png" class="expedition-pic" />
         </div>
         <div class="training-node active-voyage">
           <div class="node-header">
-            <img src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/apclogo.png" class="school-logo" />
+            <img src="https://raw.githubusercontent.com/ushmaryosep/personal-website-finals-webprog/main/assets(gif%2C%20png%2C%20jpg)/apclogo.png" class="school-logo" />
             <h2 class="node-title">🏴‍☠️ College – The Grand Line (2024 – 2028)</h2>
           </div>
           <p class="node-school gold-text">Asia Pacific College</p>
           <p class="node-addr">3 Humabon Place, Magallanes, Makati City 1232 PH</p>
           <p class="node-text">Currently sailing as a second-year Information Technology student, mastering the arts of coding, systems, and digital innovation — preparing to command my own fleet in the future.</p>
-          <img src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/apcpic1.png" />
+          <img src="https://raw.githubusercontent.com/ushmaryosep/personal-website-finals-webprog/main/assets(gif%2C%20png%2C%20jpg)/apcpic1.png" class="expedition-pic" />
         </div>
       </div>
       <button @click="$emit('close')" class="back-to-menu-training">← BACK TO Captain's Deck</button>

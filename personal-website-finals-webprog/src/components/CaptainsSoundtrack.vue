@@ -58,7 +58,7 @@ export default {
   methods: {
     async fetchMyTracks() {
       try {
-        // 1. Get Access Token
+        // 1. Get Access Token from official Spotify Auth
         const authParam = btoa(`${this.clientId}:${this.clientSecret}`);
         const tokenResponse = await fetch('https://accounts.spotify.com/api/token', {
           method: 'POST',
@@ -71,7 +71,7 @@ export default {
         const tokenData = await tokenResponse.json();
         const accessToken = tokenData.access_token;
 
-        // 2. Fetch each track individually via Search to ensure exact matches
+        // 2. Fetch tracks via official Spotify Search API
         const trackResults = [];
         for (const query of this.myTopTracks) {
           const searchResponse = await fetch(
@@ -81,7 +81,7 @@ export default {
             }
           );
           const data = await searchResponse.json();
-          if (data.tracks.items.length > 0) {
+          if (data.tracks && data.tracks.items.length > 0) {
             trackResults.push(data.tracks.items[0]);
           }
         }
@@ -101,12 +101,12 @@ export default {
 .soundtrack-screen {
   position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;
   display: flex; justify-content: center; align-items: center; z-index: 60; padding: 40px;
-  /* Updated Background to your GIF */
-  background: url('https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/green%20bg%20for%20music.gif') no-repeat center center;
+  /* FIXED URL BELOW */
+  background: url('https://raw.githubusercontent.com/ushmaryosep/personal-website-finals-webprog/main/assets(gif%2C%20png%2C%20jpg)/green%20bg%20for%20music.gif') no-repeat center center;
   background-size: cover;
 }
 .soundtrack-container {
-  width: 90%; max-width: 850px; height: 85vh; background: rgba(0, 0, 0, 0.85); /* Slightly more transparent to see the GIF */
+  width: 90%; max-width: 850px; height: 85vh; background: rgba(0, 0, 0, 0.85);
   border: 3px solid #1DB954; border-radius: 15px; padding: 40px; 
   display: flex; flex-direction: column; overflow: hidden;
   box-shadow: 0 0 30px rgba(29, 185, 84, 0.3);

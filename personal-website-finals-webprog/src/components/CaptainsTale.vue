@@ -2,7 +2,7 @@
   <div class="tale-screen">
     <div class="tale-container">
       <div class="tale-content">
-        <img src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/captain's%20tale.png" class="tale-title-img-big anim-float" />
+        <img src="https://raw.githubusercontent.com/ushmaryosep/personal-website-finals-webprog/main/assets(gif%2C%20png%2C%20jpg)/captain's%20tale.png" class="tale-title-img-big anim-float" />
         <div class="tale-scroll">
           <p>Ahoy. I be <strong>Joshmar Clavero</strong>, a second-year Information Technology cadet sailing under the banner of Asia Pacific College. From a young age, I found myself drawn to the world of machines, systems, and the endless ocean of technology — a realm where logic commands power and creativity shapes reality.</p>
           <p>My passion lies in all things computers — from coding and system building to understanding how technology shapes modern society. I chose the path of IT not merely for a degree, but for mastery. In this ever-evolving digital Grand Line, I aim to sharpen my skills, expand my knowledge, and become a captain worthy of leading my own fleet of innovations.</p>

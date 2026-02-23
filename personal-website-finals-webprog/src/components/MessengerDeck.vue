@@ -120,13 +120,13 @@ export default {
 </script>
 
 <style scoped>
-/* 1. MAIN SCREEN SETUP */
 .messenger-screen {
   position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;
   display: flex; justify-content: flex-start; align-items: center; 
   padding: 0 4%;
+  /* FIXED BACKGROUND LINK BELOW */
   background: linear-gradient(to right, rgba(0,0,0,0.85) 25%, rgba(0,0,0,0.1) 100%), 
-              url('https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/final%20bg.gif') no-repeat center center;
+              url('https://raw.githubusercontent.com/ushmaryosep/personal-website-finals-webprog/main/assets(gif%2C%20png%2C%20jpg)/final%20bg.gif') no-repeat center center;
   background-size: cover;
   z-index: 70;
 }
@@ -138,29 +138,22 @@ export default {
   flex-direction: column;
 }
 
-/* 2. TEXT & HEADERS */
 .messenger-title { font-family: 'Bangers'; color: #f4d03f; font-size: 1.8rem; letter-spacing: 1px; }
 .messenger-subtitle { color: #aaa; font-size: 0.8rem; margin-bottom: 25px; font-family: 'Oswald'; }
 .section-label { font-family: 'Bangers'; color: #f4d03f; font-size: 1rem; margin-bottom: 10px; opacity: 0.8; }
 
-/* 3. THE INVISIBLE SCROLLBAR ENGINE */
 .layout-grid {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  overflow-y: scroll; /* Allow scrolling */
+  overflow-y: scroll;
   padding-right: 5px;
   
-  /* Hide scrollbar for Chrome, Safari and Opera */
-  &::-webkit-scrollbar {
-    display: none;
-  }
-  /* Hide scrollbar for IE, Edge and Firefox */
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  &::-webkit-scrollbar { display: none; }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-/* 4. FORM & INPUTS */
 .ledger-form { display: flex; flex-direction: column; gap: 12px; }
 .ledger-form input, .ledger-form textarea {
   background: rgba(255,255,255,0.05); border: none; border-bottom: 1px solid #333; 
@@ -175,7 +168,6 @@ export default {
 }
 .submit-btn:hover { background: white; transform: scale(1.02); }
 
-/* 5. SOCIAL LOGOS */
 .social-links-area { margin-top: 15px; }
 .social-btns { display: flex; gap: 18px; }
 .social-icon img {
@@ -183,7 +175,6 @@ export default {
 }
 .social-icon:hover img { filter: invert(82%) sepia(54%) saturate(464%) hue-rotate(351deg) brightness(101%) contrast(92%); transform: translateY(-3px); }
 
-/* 6. MESSAGE LIST */
 .message-list { display: flex; flex-direction: column; gap: 12px; }
 .message-item {
   padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -191,7 +182,6 @@ export default {
 .msg-author { color: #f4d03f; font-weight: bold; font-size: 0.8rem; font-family: 'Bangers'; letter-spacing: 0.5px; }
 .msg-text { font-size: 0.8rem; color: #bbb; font-family: 'Oswald'; margin-top: 2px; line-height: 1.4; }
 
-/* 7. RETURN BUTTON */
 .back-to-deck-btn {
   margin-top: 20px; background: none; border: 1px solid rgba(255,255,255,0.2); color: #888;
   padding: 6px 15px; cursor: pointer; font-family: 'Oswald'; font-size: 0.75rem; width: fit-content; transition: 0.3s;

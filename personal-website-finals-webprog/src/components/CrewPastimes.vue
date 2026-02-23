@@ -118,7 +118,6 @@ export default {
         ];
         
         for (const title of animeTitles) {
-          // Added &type=tv to the query to ensure we get series and not movies
           const res = await fetch(`https://api.jikan.moe/v4/anime?q=${encodeURIComponent(title)}&type=tv&limit=1`);
           const json = await res.json();
           if (json.data && json.data.length > 0) this.anime.push(json.data[0]);
@@ -138,7 +137,8 @@ export default {
 .pastimes-screen {
   position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
   background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), 
-              url('https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/BG%203.gif');
+              /* FIXED LINK BELOW */
+              url('https://raw.githubusercontent.com/ushmaryosep/personal-website-finals-webprog/main/assets(gif%2C%20png%2C%20jpg)/BG%203.gif');
   background-size: cover; z-index: 100; overflow-y: auto; color: white;
 }
 

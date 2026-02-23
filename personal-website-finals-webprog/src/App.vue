@@ -2,28 +2,28 @@
   <div id="app" class="grand-line">
     
     <div class="bg-container">
-      <img src="https://github.com/ushmaryosep/personal-website-finals/blob/main/live%20background.gif?raw=true" class="bg-layer" :class="{ 'visible': currentView === 'main' }"/>
-      <img src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/bg2.gif" class="bg-layer" :class="{ 'visible': currentView === 'trap' }"/>
-      <img src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/main%20menu.gif" class="bg-layer" :class="{ 'visible': currentView === 'menu' }"/>
-      <img src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/BG%203.gif" class="bg-layer" :class="{ 'visible': ['tale', 'training', 'hobbies', 'battle', 'soundtrack'].includes(currentView) }"/>
-      <img src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/final%20bg.gif" class="bg-layer" :class="{ 'visible': currentView === 'messenger' }"/>
+      <img src="https://raw.githubusercontent.com/ushmaryosep/personal-website-finals/main/live%20background.gif" class="bg-layer" :class="{ 'visible': currentView === 'main' }"/>
+      <img src="https://raw.githubusercontent.com/ushmaryosep/personal-website-finals-webprog/main/assets(gif%2C%20png%2C%20jpg)/bg2.gif" class="bg-layer" :class="{ 'visible': currentView === 'trap' }"/>
+      <img src="https://raw.githubusercontent.com/ushmaryosep/personal-website-finals-webprog/main/assets(gif%2C%20png%2C%20jpg)/main%20menu.gif" class="bg-layer" :class="{ 'visible': currentView === 'menu' }"/>
+      <img src="https://raw.githubusercontent.com/ushmaryosep/personal-website-finals-webprog/main/assets(gif%2C%20png%2C%20jpg)/BG%203.gif" class="bg-layer" :class="{ 'visible': ['tale', 'training', 'hobbies', 'battle', 'soundtrack'].includes(currentView) }"/>
+      <img src="https://raw.githubusercontent.com/ushmaryosep/personal-website-finals-webprog/main/assets(gif%2C%20png%2C%20jpg)/final%20bg.gif" class="bg-layer" :class="{ 'visible': currentView === 'messenger' }"/>
     </div>
 
     <div class="overlay" :class="{ 'trap-active': currentView === 'trap', 'menu-active': ['menu', 'tale', 'training', 'hobbies', 'battle', 'soundtrack', 'messenger'].includes(currentView) }"></div>
 
     <transition name="fade">
-      <img v-if="showPoster || currentView !== 'main'" src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/mylogo.png" class="main-logo" @click="resetToHome" alt="Logo"/>
+      <img v-if="showPoster || currentView !== 'main'" src="https://raw.githubusercontent.com/ushmaryosep/personal-website-finals-webprog/main/assets(gif%2C%20png%2C%20jpg)/mylogo.png" class="main-logo" @click="resetToHome" alt="Logo"/>
     </transition>
 
     <transition name="fade">
       <div v-if="isLoading" class="loading-overlay">
         <template v-if="!isNullifying">
           <h1 class="scam-text">YOU'VE BEEN SCAMMED!</h1>
-          <img src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/loading%20screen.gif" alt="Loading..." />
+          <img src="https://raw.githubusercontent.com/ushmaryosep/personal-website-finals-webprog/main/assets(gif%2C%20png%2C%20jpg)/loading%20screen.gif" alt="Loading..." />
         </template>
         <template v-else>
           <h1 class="nullify-text">EFFECTS NOW NULLIFYING...</h1>
-          <img src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/nullifying%20effects.gif" class="nullify-bg" />
+          <img src="https://raw.githubusercontent.com/ushmaryosep/personal-website-finals-webprog/main/assets(gif%2C%20png%2C%20jpg)/nullifying%20effects.gif" class="nullify-bg" />
         </template>
       </div>
     </transition>
@@ -31,7 +31,7 @@
     <div v-if="currentView === 'main'" class="stage" :class="{ 'is-shifted': showPoster }">
       <section class="screen section-left">
         <div class="content-box left-aligned">
-          <img src="https://raw.githubusercontent.com/ushmaryosep/personal-website-finals/refs/heads/main/hero%20title.png" class="hero-title-img"/>
+          <img src="https://raw.githubusercontent.com/ushmaryosep/personal-website-finals/main/hero%20title.png" class="hero-title-img"/>
           <p class="pirate-description">Ahoy, wanderer of the seas! This be the personal stronghold of Joshmar Clavero. Within these coordinates, you’ll find the chronicles of a developer-pirate: from the grueling logs of Grand Line Training to the ultimate Battle Abilities. Explore the deck, but heed the warning—the Marines are always watching, and not every fruit you find is sweet.</p>
           <button @click="showPoster = true" class="pirate-btn">VIEW WANTED POSTER ☠</button>
         </div>
@@ -39,7 +39,7 @@
 
       <section class="screen section-right">
         <div class="poster-wrap left-aligned-poster">
-          <img src="https://raw.githubusercontent.com/ushmaryosep/personal-website-finals/refs/heads/main/HERO%20CARD.png" class="wanted-card"/>
+          <img src="https://raw.githubusercontent.com/ushmaryosep/personal-website-finals/main/HERO%20CARD.png" class="wanted-card"/>
           <div class="action-btns">
             <button @click="showPoster = false" class="back-btn">← RETURN TO SHIP</button>
             <button @click="triggerTrap" class="marine-btn">REPORT TO MARINES 🏛️</button>
@@ -52,7 +52,7 @@
       <div v-if="currentView === 'trap'" class="trap-view">
         <h1 class="trap-title">HA HA! NEVER TRUST A <span class="red">PIRATE!</span></h1>
         <div class="fruit-container" @click="triggerNullifying">
-          <img src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/FRUIT.png" class="devil-fruit" />
+          <img src="https://raw.githubusercontent.com/ushmaryosep/personal-website-finals-webprog/main/assets(gif%2C%20png%2C%20jpg)/FRUIT.png" class="devil-fruit" />
           <button class="eat-btn">EAT THIS 🍎</button>
         </div>
       </div>
@@ -137,12 +137,12 @@ export default {
       currentView: 'main', currentImgIndex: 0, isLightboxOpen: false,
       carouselTimer: null,
       carouselImages: [
-        'https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/mypic1.png',
-        'https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/mypic2.png',
-        'https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/mypic3.png',
-        'https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/mypic4.png',
-        'https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/mypic5.png',
-        'https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/assets(gif%2C%20png%2C%20jpg)/mypic6.png'
+        'https://raw.githubusercontent.com/ushmaryosep/personal-website-finals-webprog/main/assets(gif%2C%20png%2C%20jpg)/mypic1.png',
+        'https://raw.githubusercontent.com/ushmaryosep/personal-website-finals-webprog/main/assets(gif%2C%20png%2C%20jpg)/mypic2.png',
+        'https://raw.githubusercontent.com/ushmaryosep/personal-website-finals-webprog/main/assets(gif%2C%20png%2C%20jpg)/mypic3.png',
+        'https://raw.githubusercontent.com/ushmaryosep/personal-website-finals-webprog/main/assets(gif%2C%20png%2C%20jpg)/mypic4.png',
+        'https://raw.githubusercontent.com/ushmaryosep/personal-website-finals-webprog/main/assets(gif%2C%20png%2C%20jpg)/mypic5.png',
+        'https://raw.githubusercontent.com/ushmaryosep/personal-website-finals-webprog/main/assets(gif%2C%20png%2C%20jpg)/mypic6.png'
       ]
     }
   },
@@ -170,6 +170,7 @@ export default {
 </script>
 
 <style>
+/* Style section remains identical as no links were present in the CSS */
 /* 1. GLOBAL STYLES */
 * { 
   margin: 0; padding: 0; box-sizing: border-box; 
