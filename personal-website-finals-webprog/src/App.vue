@@ -16,13 +16,13 @@
       />
       <img 
         src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/BG%203.gif?raw=true" 
-        class="bg-layer" :class="{ 'visible': currentView === 'tale' || currentView === 'training' || currentView === 'hobbies' }"
+        class="bg-layer" :class="{ 'visible': currentView === 'tale' || currentView === 'training' || currentView === 'hobbies' || currentView === 'battle' }"
       />
     </div>
 
     <div class="overlay" :class="{ 
       'trap-active': currentView === 'trap', 
-      'menu-active': currentView === 'menu' || currentView === 'tale' || currentView === 'training' || currentView === 'hobbies'
+      'menu-active': currentView === 'menu' || currentView === 'tale' || currentView === 'training' || currentView === 'hobbies' || currentView === 'battle'
     }"></div>
 
     <transition name="fade">
@@ -186,6 +186,10 @@
     </transition>
 
     <transition name="fade">
+      <BattleAbilities v-if="currentView === 'battle'" @close="currentView = 'menu'" />
+    </transition>
+
+    <transition name="fade">
       <div v-if="currentView === 'menu'" class="menu-screen-final">
         <div class="menu-nav-container">
           <h1 class="menu-header">WELCOME TO THE CAPTAIN'S DECK</h1>
@@ -193,7 +197,7 @@
             <button class="menu-item-stack" @click="currentView = 'tale'">⚓ The Captain’s Tale</button>
             <button class="menu-item-stack" @click="currentView = 'training'">📜 Grand Line Training</button>
             <button class="menu-item-stack" @click="currentView = 'hobbies'">🍖 Crew Pastimes</button>
-            <button class="menu-item-stack">🗡️ Battle Abilities</button>
+            <button class="menu-item-stack" @click="currentView = 'battle'">🗡️ Battle Abilities</button>
             <button class="menu-item-stack">🏆 Bounties & Glory</button>
             <button class="menu-item-stack">🕊️ Send a Message</button>
           </div>
@@ -211,11 +215,13 @@
 
 <script>
 import CrewPastimes from './components/CrewPastimes.vue'
+import BattleAbilities from './components/BattleAbilities.vue'
 
 export default {
   name: 'App',
   components: {
-    CrewPastimes
+    CrewPastimes,
+    BattleAbilities
   },
   data() {
     return {
