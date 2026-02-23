@@ -5,10 +5,10 @@
       <img src="https://github.com/ushmaryosep/personal-website-finals/blob/main/live%20background.gif?raw=true" class="bg-layer" :class="{ 'visible': currentView === 'main' }"/>
       <img src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/bg2.gif?raw=true" class="bg-layer" :class="{ 'visible': currentView === 'trap' }"/>
       <img src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/main%20menu.gif?raw=true" class="bg-layer" :class="{ 'visible': currentView === 'menu' }"/>
-      <img src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/BG%203.gif?raw=true" class="bg-layer" :class="{ 'visible': ['tale', 'training', 'hobbies', 'battle'].includes(currentView) }"/>
+      <img src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/BG%203.gif?raw=true" class="bg-layer" :class="{ 'visible': ['tale', 'training', 'hobbies', 'battle', 'soundtrack'].includes(currentView) }"/>
     </div>
 
-    <div class="overlay" :class="{ 'trap-active': currentView === 'trap', 'menu-active': ['menu', 'tale', 'training', 'hobbies', 'battle'].includes(currentView) }"></div>
+    <div class="overlay" :class="{ 'trap-active': currentView === 'trap', 'menu-active': ['menu', 'tale', 'training', 'hobbies', 'battle', 'soundtrack'].includes(currentView) }"></div>
 
     <transition name="fade">
       <img v-if="showPoster || currentView !== 'main'" src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/mylogo.png?raw=true" class="main-logo" @click="resetToHome" alt="Logo"/>
@@ -81,6 +81,10 @@
     </transition>
 
     <transition name="fade">
+      <CaptainsSoundtrack v-if="currentView === 'soundtrack'" @close="currentView = 'menu'" />
+    </transition>
+
+    <transition name="fade">
       <div v-if="currentView === 'menu'" class="menu-screen-final">
         <div class="menu-nav-container">
           <h1 class="menu-header">WELCOME TO THE CAPTAIN'S DECK</h1>
@@ -89,7 +93,7 @@
             <button class="menu-item-stack" @click="currentView = 'training'">📜 Grand Line Training</button>
             <button class="menu-item-stack" @click="currentView = 'hobbies'">🍖 Crew Pastimes</button>
             <button class="menu-item-stack" @click="currentView = 'battle'">🗡️ Battle Abilities</button>
-            <button class="menu-item-stack">🏆 Bounties & Glory</button>
+            <button class="menu-item-stack" @click="currentView = 'soundtrack'">🎶 Captain’s Soundtrack</button>
             <button class="menu-item-stack">🕊️ Send a Message</button>
           </div>
         </div>
@@ -109,10 +113,17 @@ import CrewPastimes from './components/CrewPastimes.vue'
 import BattleAbilities from './components/BattleAbilities.vue'
 import CaptainsTale from './components/CaptainsTale.vue'
 import GrandLineTraining from './components/GrandLineTraining.vue'
+import CaptainsSoundtrack from './components/CaptainsSoundtrack.vue'
 
 export default {
   name: 'App',
-  components: { CrewPastimes, BattleAbilities, CaptainsTale, GrandLineTraining },
+  components: { 
+    CrewPastimes, 
+    BattleAbilities, 
+    CaptainsTale, 
+    GrandLineTraining,
+    CaptainsSoundtrack
+  },
   data() {
     return {
       showPoster: false, isLoading: false, isNullifying: false,

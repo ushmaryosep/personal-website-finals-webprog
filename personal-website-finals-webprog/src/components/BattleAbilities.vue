@@ -2,7 +2,7 @@
   <div class="battle-screen">
     <div class="battle-container">
       <div class="header-area">
-        <button @click="$emit('close')" class="back-to-deck">← RETURN TO SHIP</button>
+        <button @click="$emit('close')" class="back-to-deck">← Return to Captain's Deck</button>
         <h1 class="battle-title">🗡️ BATTLE ABILITIES</h1>
         <p class="subtitle">The weapons and tactics used to conquer the digital Grand Line.</p>
       </div>
@@ -46,7 +46,7 @@ export default {
           title: "Communication",
           category: "LEADERSHIP",
           icon: "🗣️",
-          image: "https://images.unsplash.com/photo-1521791136064-7986c2959210?q=80&w=500",
+          image: "https://unsplash.com/photos/people-raising-hands-with-bokeh-lights-0RDBOAdnbWM?q=80&w=500",
           description: "A captain must speak clearly. I can present ideas confidently, explain technical concepts simply, and collaborate effectively with teammates."
         },
         {
