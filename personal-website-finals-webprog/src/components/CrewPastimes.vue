@@ -2,7 +2,7 @@
   <div class="pastimes-screen">
     <div class="pastimes-container">
       <div class="header-area">
-        <button @click="$emit('close')" class="back-to-deck">← RETURN TO SHIP</button>
+        <button @click="$emit('close')" class="back-to-deck">← Return to Captain's Deck</button>
         <h1 class="pastimes-title">🍖 CREW PASTIMES</h1>
         <p class="subtitle">Even the fiercest captains need time off the battlefield.</p>
       </div>

@@ -46,7 +46,7 @@ export default {
           title: "Communication",
           category: "LEADERSHIP",
           icon: "🗣️",
-          image: "https://unsplash.com/photos/people-raising-hands-with-bokeh-lights-0RDBOAdnbWM?q=80&w=500",
+          image: "https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/communication.png?q=80&w=500",
           description: "A captain must speak clearly. I can present ideas confidently, explain technical concepts simply, and collaborate effectively with teammates."
         },
         {
