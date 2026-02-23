@@ -16,13 +16,13 @@
       />
       <img 
         src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/BG%203.gif?raw=true" 
-        class="bg-layer" :class="{ 'visible': currentView === 'tale' || currentView === 'training' }"
+        class="bg-layer" :class="{ 'visible': currentView === 'tale' || currentView === 'training' || currentView === 'hobbies' }"
       />
     </div>
 
     <div class="overlay" :class="{ 
       'trap-active': currentView === 'trap', 
-      'menu-active': currentView === 'menu' || currentView === 'tale' || currentView === 'training'
+      'menu-active': currentView === 'menu' || currentView === 'tale' || currentView === 'training' || currentView === 'hobbies'
     }"></div>
 
     <transition name="fade">
@@ -182,13 +182,17 @@
     </transition>
 
     <transition name="fade">
+      <CrewPastimes v-if="currentView === 'hobbies'" @close="currentView = 'menu'" />
+    </transition>
+
+    <transition name="fade">
       <div v-if="currentView === 'menu'" class="menu-screen-final">
         <div class="menu-nav-container">
           <h1 class="menu-header">WELCOME TO THE CAPTAIN'S DECK</h1>
           <div class="stacked-nav">
             <button class="menu-item-stack" @click="currentView = 'tale'">⚓ The Captain’s Tale</button>
             <button class="menu-item-stack" @click="currentView = 'training'">📜 Grand Line Training</button>
-            <button class="menu-item-stack">🍖 Crew Pastimes</button>
+            <button class="menu-item-stack" @click="currentView = 'hobbies'">🍖 Crew Pastimes</button>
             <button class="menu-item-stack">🗡️ Battle Abilities</button>
             <button class="menu-item-stack">🏆 Bounties & Glory</button>
             <button class="menu-item-stack">🕊️ Send a Message</button>
@@ -206,8 +210,13 @@
 </template>
 
 <script>
+import CrewPastimes from './components/CrewPastimes.vue'
+
 export default {
   name: 'App',
+  components: {
+    CrewPastimes
+  },
   data() {
     return {
       showPoster: false,
