@@ -32,7 +32,7 @@
       <section class="screen section-left">
         <div class="content-box left-aligned">
           <img src="https://raw.githubusercontent.com/ushmaryosep/personal-website-finals/refs/heads/main/hero%20title.png" class="hero-title-img"/>
-          <p class="pirate-description">Ahoy, wanderer of the seas! This be the personal stronghold of Joshmar Clavero, where all tales of the captain be gathered...</p>
+          <p class="pirate-description">Ahoy, wanderer of the seas! This be the personal stronghold of Joshmar Clavero. Within these coordinates, you’ll find the chronicles of a developer-pirate: from the grueling logs of Grand Line Training to the ultimate Battle Abilities. Explore the deck, but heed the warning—the Marines are always watching, and not every fruit you find is sweet.</p>
           <button @click="showPoster = true" class="pirate-btn">VIEW WANTED POSTER ☠</button>
         </div>
       </section>
