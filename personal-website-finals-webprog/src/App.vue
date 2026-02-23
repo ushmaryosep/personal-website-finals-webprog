@@ -10,14 +10,14 @@
     <div class="stage" :class="{ 'is-shifted': showPoster }">
       
       <section class="screen section-left">
-        <div class="content-box">
+        <div class="content-box left-aligned">
           <img 
             src="https://raw.githubusercontent.com/ushmaryosep/personal-website-finals/refs/heads/main/hero%20title.png" 
             class="hero-title-img"
             alt="Joshmar Clavero"
           />
 
-          <p class="pirate-description">
+          <p class="pirate-description text-left">
             Ahoy, wanderer of the seas! This be the personal stronghold of Joshmar Clavero, 
             where all tales of the captain be gathered—from humble beginnings and 
             Grand Line training, to battle skills, crew pastimes, and glorious achievements.
@@ -30,7 +30,7 @@
       </section>
 
       <section class="screen section-right">
-        <div class="poster-wrap">
+        <div class="poster-wrap left-aligned-poster">
           <img 
             src="https://raw.githubusercontent.com/ushmaryosep/personal-website-finals/refs/heads/main/HERO%20CARD.png" 
             class="wanted-card"
@@ -58,7 +58,6 @@ export default {
 </script>
 
 <style>
-/* Reset and Global Styles */
 * {
   margin: 0;
   padding: 0;
@@ -67,7 +66,7 @@ export default {
 
 body {
   background-color: #000;
-  overflow: hidden; /* Prevents scrollbars during the slide transition */
+  overflow: hidden;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -77,7 +76,6 @@ body {
   height: 100vh;
 }
 
-/* Background Logic */
 .bg-gif {
   position: absolute;
   top: 0;
@@ -94,14 +92,13 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4); /* Darkens the GIF so text pops */
+  background: linear-gradient(to right, rgba(0,0,0,0.7) 30%, rgba(0,0,0,0.2) 100%);
   z-index: -1;
 }
 
-/* Animation Stage Logic */
 .stage {
   display: flex;
-  width: 200vw; /* Side-by-side sections */
+  width: 200vw;
   height: 100vh;
   transition: transform 1.2s cubic-bezier(0.85, 0, 0.15, 1);
 }
@@ -114,80 +111,95 @@ body {
   width: 100vw;
   height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 5%;
+  align-items: center; /* Vertical center */
+  justify-content: flex-start; /* Push to left */
+  padding-left: 8%; /* Adjust this to move further left/right */
 }
 
-/* --- TITLE & TEXT EFFECTS --- */
+/* --- NEW POSITIONING CLASSES --- */
+
+.left-aligned {
+  text-align: left;
+  max-width: 550px;
+}
+
+.left-aligned-poster {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* --- TITLE & TEXT --- */
 
 .hero-title-img {
   width: 100%;
-  max-width: 600px;
+  max-width: 500px;
   animation: titleZoom 5s ease-in-out infinite;
   filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
 }
 
 @keyframes titleZoom {
   0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.08); }
+  50% { transform: scale(1.05); }
 }
 
 .pirate-description {
   color: white;
-  font-size: 1.2rem;
-  max-width: 600px;
-  margin: 30px auto;
-  text-align: center;
-  text-shadow: 2px 2px 10px rgba(0,0,0,0.9);
-  animation: float 4s ease-in-out infinite;
+  font-size: 1.1rem;
+  margin: 25px 0;
+  text-shadow: 2px 2px 8px rgba(0,0,0,1);
+  line-height: 1.6;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); opacity: 0.9; }
-  50% { transform: translateY(-10px); opacity: 1; }
-}
-
-/* --- PIRATE BUTTON --- */
+/* --- BUTTONS --- */
 
 .pirate-btn {
   background: #f4d03f;
   color: #1a1a1a;
   border: 4px solid #5d4037;
-  padding: 15px 40px;
+  padding: 12px 35px;
   font-weight: 900;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   cursor: pointer;
   transition: 0.3s;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
 }
 
 .pirate-btn:hover {
   background: #fff;
-  transform: scale(1.1) rotate(-3deg);
-  box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+  transform: translateY(-3px);
 }
 
-/* --- WANTED POSTER SECTION --- */
+/* --- POSTER --- */
 
 .wanted-card {
-  max-height: 80vh;
-  max-width: 90%;
-  border: 10px solid #2c1a11;
-  box-shadow: 0 0 60px rgba(0,0,0,0.9);
+  max-height: 75vh;
+  width: auto;
+  border: 8px solid #2c1a11;
+  box-shadow: 0 0 40px rgba(0,0,0,0.8);
 }
 
 .back-btn {
-  margin-top: 25px;
-  background: transparent;
+  margin-top: 20px;
+  background: rgba(0,0,0,0.5);
   color: white;
   border: 1px solid white;
-  padding: 10px 20px;
+  padding: 8px 15px;
   cursor: pointer;
-  opacity: 0.7;
   transition: 0.3s;
 }
 
-.back-btn:hover { opacity: 1; border-color: #f4d03f; color: #f4d03f; }
+.back-btn:hover { color: #f4d03f; border-color: #f4d03f; }
+
+/* Responsive: Center things on mobile */
+@media (max-width: 900px) {
+  .screen {
+    justify-content: center;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  .left-aligned, .left-aligned-poster {
+    align-items: center;
+    text-align: center;
+  }
+}
 </style>
