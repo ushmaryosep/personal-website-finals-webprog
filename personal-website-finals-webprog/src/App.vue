@@ -1,14 +1,27 @@
 <template>
   <div id="app" class="grand-line">
     <img 
-      src="https://github.com/ushmaryosep/personal-website-finals/blob/main/live%20background.gif?raw=true" 
+      :src="currentView === 'main' 
+        ? 'https://github.com/ushmaryosep/personal-website-finals/blob/main/live%20background.gif?raw=true' 
+        : 'https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/bg2.gif?raw=true'" 
       class="bg-gif" 
       alt="Grand Line"
     />
     <div class="overlay" :class="{ 'trap-active': currentView === 'trap' }"></div>
 
     <transition name="fade">
+      <img 
+        v-if="showPoster || currentView === 'trap'" 
+        src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/mylogo.png?raw=true" 
+        class="main-logo"
+        @click="resetToHome"
+        alt="Logo"
+      />
+    </transition>
+
+    <transition name="fade">
       <div v-if="isLoading" class="loading-overlay">
+        <h1 class="scam-text">YOU'VE BEEN SCAMMED!</h1>
         <img src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/loading%20screen.gif?raw=true" alt="Loading..." />
       </div>
     </transition>
@@ -57,13 +70,13 @@
         <h1 class="trap-title">HA HA! NEVER TRUST A <span class="red">PIRATE!</span></h1>
         
         <div class="nav-grid">
-          <button class="menu-item">🏴‍☠️ Captain’s Deck</button>
-          <button class="menu-item">⚓ The Captain’s Tale</button>
-          <button class="menu-item">📜 Grand Line Training</button>
-          <button class="menu-item">🍖 Crew Pastimes</button>
-          <button class="menu-item">🗡️ Battle Abilities</button>
-          <button class="menu-item">🏆 Bounties & Glory</button>
-          <button class="menu-item">🕊️ Send a Den Den Message</button>
+          <button class="menu-item pirate-font">🏴‍☠️ Captain’s Deck</button>
+          <button class="menu-item pirate-font">⚓ The Captain’s Tale</button>
+          <button class="menu-item pirate-font">📜 Grand Line Training</button>
+          <button class="menu-item pirate-font">🍖 Crew Pastimes</button>
+          <button class="menu-item pirate-font">🗡️ Battle Abilities</button>
+          <button class="menu-item pirate-font">🏆 Bounties & Glory</button>
+          <button class="menu-item pirate-font">🕊️ Send a Den Den Message</button>
         </div>
       </div>
     </transition>
@@ -78,24 +91,29 @@ export default {
     return {
       showPoster: false,
       isLoading: false,
-      currentView: 'main' // Switches between 'main' and 'trap'
+      currentView: 'main' 
     }
   },
   methods: {
     triggerTrap() {
       this.isLoading = true;
-      // Simulate the brief "creepy" loading wait
       setTimeout(() => {
         this.isLoading = false;
         this.currentView = 'trap';
-      }, 1800);
+      }, 2200);
+    },
+    resetToHome() {
+      this.currentView = 'main';
+      this.showPoster = false;
     }
   }
 }
 </script>
 
 <style>
-/* Reset and Global Styles */
+/* 1. IMPORT GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Luckiest+Guy&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -108,13 +126,25 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* 2. LOGO STYLING */
+.main-logo {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 60px;
+  z-index: 150;
+  cursor: pointer;
+  filter: drop-shadow(0 0 10px #f4d03f);
+  transition: 0.3s;
+}
+.main-logo:hover { transform: scale(1.1) rotate(-5deg); }
+
 .grand-line {
   position: relative;
   width: 100vw;
   height: 100vh;
 }
 
-/* Background Logic */
 .bg-gif {
   position: absolute;
   top: 0; left: 0;
@@ -133,10 +163,25 @@ body {
 }
 
 .overlay.trap-active {
-  background: rgba(0, 0, 0, 0.85); /* Darkens the world for the trap menu */
+  background: rgba(0, 0, 0, 0.7);
 }
 
-/* Stage Logic */
+/* 3. SCAMMED TEXT ANIMATION */
+.scam-text {
+  color: #ff0000;
+  font-family: 'Bangers', cursive;
+  font-size: 5rem;
+  margin-bottom: 20px;
+  text-shadow: 0 0 20px black;
+  animation: shake 0.1s infinite;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px); }
+  50% { transform: translate(-2px, -1px); }
+  100% { transform: translate(1px, -2px); }
+}
+
 .stage {
   display: flex;
   width: 200vw;
@@ -157,25 +202,24 @@ body {
   padding-left: 8%;
 }
 
-/* Loading Overlay Styles */
 .loading-overlay {
   position: fixed;
   top: 0; left: 0;
   width: 100vw; height: 100vh;
   background: black;
-  z-index: 100;
+  z-index: 200;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 .loading-overlay img {
   width: 100%;
-  height: 100%;
+  height: 70%;
   object-fit: contain;
 }
 
-/* Trap View Styles */
 .trap-view {
   position: absolute;
   top: 0; left: 0;
@@ -189,20 +233,14 @@ body {
 }
 
 .trap-title {
-  font-size: 3.5rem;
+  font-size: 4rem;
   color: white;
   margin-bottom: 40px;
-  font-family: 'Impact', sans-serif;
-  text-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
-  animation: jitter 0.2s infinite alternate;
+  font-family: 'Luckiest Guy', cursive;
+  text-shadow: 4px 4px 0px #ff0000;
 }
 
 .red { color: #ff0000; }
-
-@keyframes jitter {
-  from { transform: translateX(-2px); }
-  to { transform: translateX(2px); }
-}
 
 .nav-grid {
   display: grid;
@@ -212,25 +250,26 @@ body {
   max-width: 800px;
 }
 
-.menu-item {
+/* 4. IMPROVED PIRATE BUTTONS */
+.menu-item.pirate-font {
+  font-family: 'Bangers', cursive;
   padding: 15px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid white;
-  color: white;
-  font-size: 1.1rem;
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid #f4d03f;
+  color: #f4d03f;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
   cursor: pointer;
   transition: 0.3s;
-  backdrop-filter: blur(5px);
 }
 
 .menu-item:hover {
   background: #f4d03f;
   color: #000;
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(244, 208, 63, 0.4);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(244, 208, 63, 0.4);
 }
 
-/* Buttons and Poster Positioning */
 .action-btns {
   display: flex;
   gap: 15px;
@@ -252,14 +291,12 @@ body {
   border-color: #ff0000;
 }
 
-/* Transitions */
 .fade-leave-active { transition: opacity 0.8s; }
 .fade-leave-to { opacity: 0; }
 
-.zoom-in-enter-active { transition: all 0.8s ease-out; }
-.zoom-in-enter-from { opacity: 0; transform: scale(0.8); }
+.zoom-in-enter-active { transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.zoom-in-enter-from { opacity: 0; transform: scale(1.2); }
 
-/* Reuse existing styles from your code */
 .left-aligned { text-align: left; max-width: 550px; }
 .left-aligned-poster { display: flex; flex-direction: column; align-items: flex-start; }
 .hero-title-img { width: 100%; max-width: 500px; animation: titleZoom 5s infinite; }
