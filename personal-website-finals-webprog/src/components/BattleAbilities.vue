@@ -46,7 +46,8 @@ export default {
           title: "Communication",
           category: "LEADERSHIP",
           icon: "🗣️",
-          image: "https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/communication.png?q=80&w=500",
+          // FIXED LINK BELOW: added ?raw=true and removed unsplash parameters
+          image: "https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/communication.png?raw=true",
           description: "A captain must speak clearly. I can present ideas confidently, explain technical concepts simply, and collaborate effectively with teammates."
         },
         {
@@ -83,12 +84,9 @@ export default {
   overflow-y: auto; 
   color: white;
 
-  /* --- INVISIBLE SCROLLBAR LOGIC --- */
-  /* Chrome, Safari, and Opera */
   &::-webkit-scrollbar {
     display: none;
   }
-  /* IE, Edge, and Firefox */
   -ms-overflow-style: none;  
   scrollbar-width: none;  
 }

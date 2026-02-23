@@ -6,9 +6,10 @@
       <img src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/bg2.gif?raw=true" class="bg-layer" :class="{ 'visible': currentView === 'trap' }"/>
       <img src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/main%20menu.gif?raw=true" class="bg-layer" :class="{ 'visible': currentView === 'menu' }"/>
       <img src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/BG%203.gif?raw=true" class="bg-layer" :class="{ 'visible': ['tale', 'training', 'hobbies', 'battle', 'soundtrack'].includes(currentView) }"/>
+      <img src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/final%20bg.gif?raw=true" class="bg-layer" :class="{ 'visible': currentView === 'messenger' }"/>
     </div>
 
-    <div class="overlay" :class="{ 'trap-active': currentView === 'trap', 'menu-active': ['menu', 'tale', 'training', 'hobbies', 'battle', 'soundtrack'].includes(currentView) }"></div>
+    <div class="overlay" :class="{ 'trap-active': currentView === 'trap', 'menu-active': ['menu', 'tale', 'training', 'hobbies', 'battle', 'soundtrack', 'messenger'].includes(currentView) }"></div>
 
     <transition name="fade">
       <img v-if="showPoster || currentView !== 'main'" src="https://github.com/ushmaryosep/personal-website-finals-webprog/blob/main/mylogo.png?raw=true" class="main-logo" @click="resetToHome" alt="Logo"/>
@@ -85,6 +86,10 @@
     </transition>
 
     <transition name="fade">
+      <MessengerDeck v-if="currentView === 'messenger'" @close="currentView = 'menu'" />
+    </transition>
+
+    <transition name="fade">
       <div v-if="currentView === 'menu'" class="menu-screen-final">
         <div class="menu-nav-container">
           <h1 class="menu-header">WELCOME TO THE CAPTAIN'S DECK</h1>
@@ -94,7 +99,7 @@
             <button class="menu-item-stack" @click="currentView = 'hobbies'">🍖 Crew Pastimes</button>
             <button class="menu-item-stack" @click="currentView = 'battle'">🗡️ Battle Abilities</button>
             <button class="menu-item-stack" @click="currentView = 'soundtrack'">🎶 Captain’s Soundtrack</button>
-            <button class="menu-item-stack">🕊️ Send a Message</button>
+            <button class="menu-item-stack" @click="currentView = 'messenger'">🕊️ Send a Message</button>
           </div>
         </div>
       </div>
@@ -114,6 +119,7 @@ import BattleAbilities from './components/BattleAbilities.vue'
 import CaptainsTale from './components/CaptainsTale.vue'
 import GrandLineTraining from './components/GrandLineTraining.vue'
 import CaptainsSoundtrack from './components/CaptainsSoundtrack.vue'
+import MessengerDeck from './components/MessengerDeck.vue'
 
 export default {
   name: 'App',
@@ -122,7 +128,8 @@ export default {
     BattleAbilities, 
     CaptainsTale, 
     GrandLineTraining,
-    CaptainsSoundtrack
+    CaptainsSoundtrack,
+    MessengerDeck
   },
   data() {
     return {

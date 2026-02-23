@@ -11,7 +11,7 @@
           </p>
           <p>I believe technology is power — and power, when guided by purpose, can change lives. This is only the beginning of my voyage.</p>
         </div>
-        <button @click="$emit('close')" class="back-to-menu">← Back TO Captain's Deck</button>
+        <button @click="$emit('close')" class="back-to-menu">← Back to Captain's Deck</button>
       </div>
 
       <div class="carousel-section">
