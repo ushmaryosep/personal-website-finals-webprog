@@ -2,7 +2,7 @@
   <div class="pastimes-screen">
     <div class="pastimes-container">
       <div class="header-area">
-        <button @click="$emit('close')" class="back-to-deck">← Return to Captain's Deck</button>
+        <button @click="$emit('close')" class="back-to-deck">← RETURN TO SHIP</button>
         <h1 class="pastimes-title">🍖 CREW PASTIMES</h1>
         <p class="subtitle">Even the fiercest captains need time off the battlefield.</p>
       </div>
@@ -102,16 +102,24 @@ export default {
           { t: "The Notebook", y: "2004" },
           { t: "Amadeus", y: "1984" },
           { t: "Interstellar", y: "2014" },
-          { t: "Kimi no Nawa", y: "2016" }
+          { t: "Your Name", y: "2016" }
         ];
         const moviePromises = movieTitles.map(m => 
           fetch(`https://www.omdbapi.com/?apikey=${this.OMDB_KEY}&t=${encodeURIComponent(m.t)}&y=${m.y}`).then(res => res.json())
         );
         this.movies = await Promise.all(moviePromises);
 
-        const animeTitles = ["Baccano!", "Capeta", "Steins;Gate", "Shingeki No Kyojin", "One Piece"];
+        const animeTitles = [
+          "Baccano!", 
+          "Capeta", 
+          "Steins;Gate", 
+          "Shingeki No Kyojin", 
+          "One Piece"
+        ];
+        
         for (const title of animeTitles) {
-          const res = await fetch(`https://api.jikan.moe/v4/anime?q=${encodeURIComponent(title)}&limit=1`);
+          // Added &type=tv to the query to ensure we get series and not movies
+          const res = await fetch(`https://api.jikan.moe/v4/anime?q=${encodeURIComponent(title)}&type=tv&limit=1`);
           const json = await res.json();
           if (json.data && json.data.length > 0) this.anime.push(json.data[0]);
           await new Promise(r => setTimeout(r, 600)); 
