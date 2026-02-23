@@ -270,13 +270,22 @@ export default {
 </script>
 
 <style>
-/* 1. FONTS */
+/* 1. SCROLLBAR SUPPRESSION (GLOBAL) */
+* { 
+  margin: 0; padding: 0; box-sizing: border-box; 
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  &::-webkit-scrollbar { display: none; }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* 2. FONTS */
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Oswald:wght@300;500;700&family=Luckiest+Guy&display=swap');
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
 body { background-color: #000; overflow: hidden; font-family: 'Oswald', sans-serif; color: white; }
 
-/* 2. BACKGROUND ENGINE */
+/* 3. BACKGROUND ENGINE */
 .bg-container {
   position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2;
 }
@@ -293,7 +302,7 @@ body { background-color: #000; overflow: hidden; font-family: 'Oswald', sans-ser
 .overlay.trap-active { background: rgba(0, 0, 0, 0.75); }
 .overlay.menu-active { background: rgba(0, 0, 0, 0.6); }
 
-/* 3. CAPTAIN'S TALE STYLING */
+/* 4. CAPTAIN'S TALE STYLING */
 .tale-screen {
   position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;
   display: flex; justify-content: center; align-items: center; z-index: 50; padding: 40px;
@@ -306,7 +315,7 @@ body { background-color: #000; overflow: hidden; font-family: 'Oswald', sans-ser
 .tale-content { flex: 1.2; display: flex; flex-direction: column; text-align: left; }
 .tale-title-img-big { width: 450px; margin-bottom: 20px; }
 .tale-scroll { 
-  overflow-y: auto; padding-right: 20px; font-size: 1.1rem; 
+  overflow-y: auto; padding-right: 5px; font-size: 1.1rem; 
   line-height: 1.6; font-weight: 300; color: #ddd; 
 }
 .tale-scroll p { margin-bottom: 20px; }
@@ -316,7 +325,7 @@ body { background-color: #000; overflow: hidden; font-family: 'Oswald', sans-ser
   color: #f4d03f; padding: 10px 20px; cursor: pointer; width: fit-content;
 }
 
-/* NEW: TRAINING SCREEN STYLING */
+/* 5. TRAINING SCREEN STYLING (LOGOS & IMAGES ADDED) */
 .training-screen {
   position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;
   display: flex; justify-content: center; align-items: center; z-index: 55;
@@ -324,19 +333,21 @@ body { background-color: #000; overflow: hidden; font-family: 'Oswald', sans-ser
 }
 .training-scroll-area {
   max-width: 900px; width: 100%; height: 90vh; overflow-y: auto;
-  padding-right: 20px;
+  padding-right: 5px;
 }
 .training-title { font-family: 'Bangers'; font-size: 4rem; color: #f4d03f; margin-bottom: 10px; text-shadow: 4px 4px 0px #000; }
 .training-intro { font-size: 1.3rem; line-height: 1.5; color: #ccc; margin-bottom: 40px; }
 .training-timeline { display: flex; flex-direction: column; gap: 40px; }
-.training-node { border-left: 2px solid #f4d03f; padding-left: 30px; position: relative; padding-bottom: 20px; }
+.training-node { border-left: 2px solid #f4d03f; padding-left: 30px; position: relative; padding-bottom: 30px; }
+
 .node-header { display: flex; align-items: center; gap: 15px; margin-bottom: 10px; }
 .school-logo { width: 50px; height: 50px; object-fit: contain; filter: drop-shadow(0 0 5px rgba(244, 208, 63, 0.4)); }
+.expedition-pic { margin-top: 20px; width: 100%; max-width: 500px; border: 4px solid #2c1a11; border-radius: 5px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+
 .node-title { font-family: 'Bangers'; color: #f4d03f; font-size: 1.8rem; letter-spacing: 1px; }
 .node-school { font-weight: bold; font-size: 1.2rem; color: #fff; margin: 5px 0; }
 .node-addr { font-size: 0.9rem; color: #888; font-style: italic; margin-bottom: 10px; }
 .node-text { color: #ddd; line-height: 1.6; }
-.expedition-pic { margin-top: 20px; width: 100%; max-width: 600px; border: 4px solid #2c1a11; border-radius: 5px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); display: block; }
 .gold-text { color: #f4d03f !important; text-transform: uppercase; }
 .back-to-menu-training { 
   margin-top: 50px; background: none; border: 2px solid #f4d03f; 
@@ -345,7 +356,7 @@ body { background-color: #000; overflow: hidden; font-family: 'Oswald', sans-ser
 }
 .back-to-menu-training:hover { background: #f4d03f; color: #000; }
 
-/* 4. CAROUSEL STYLING */
+/* 6. CAROUSEL STYLING */
 .carousel-section { flex: 0.8; display: flex; justify-content: center; align-items: center; }
 .carousel-frame {
   width: 100%; height: 100%; border: 10px solid #2c1a11; 
@@ -359,7 +370,7 @@ body { background-color: #000; overflow: hidden; font-family: 'Oswald', sans-ser
 }
 .carousel-controls button { background: none; border: none; color: #f4d03f; cursor: pointer; font-size: 1.5rem; }
 
-/* 5. MENU STACKED */
+/* 7. MENU STACKED */
 .menu-screen-final {
   position: absolute; top: 0; right: 0; width: 100vw; height: 100vh;
   display: flex; justify-content: flex-end; align-items: center; padding-right: 5%;
@@ -375,7 +386,7 @@ body { background-color: #000; overflow: hidden; font-family: 'Oswald', sans-ser
 }
 .menu-item-stack:hover { background: #f4d03f; color: black; transform: translateX(-10px); }
 
-/* 6. GLOBAL COMPONENTS */
+/* 8. GLOBAL COMPONENTS */
 .main-logo { position: fixed; top: 20px; left: 20px; width: 60px; z-index: 150; cursor: pointer; filter: drop-shadow(0 0 10px #f4d03f); }
 .stage { display: flex; width: 200vw; height: 100vh; transition: 1.2s cubic-bezier(0.85, 0, 0.15, 1); }
 .is-shifted { transform: translateX(-100vw); }
