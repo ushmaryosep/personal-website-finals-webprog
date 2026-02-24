@@ -2,7 +2,7 @@
   <div class="soundtrack-screen">
     <div class="soundtrack-container">
       <h1 class="soundtrack-title">🎵 CAPTAIN'S SOUNDTRACK</h1>
-      <p class="soundtrack-subtitle">The anthems that fuel the voyage through the Grand Line. <b>Note: This is a Spotify API. Use personal internet connection to accesst the tracks.</b></p>
+      <p class="soundtrack-subtitle">The anthems that fuel the voyage through the Grand Line. <b>Note: This is a Spotify API. Use personal internet connection to access the tracks.</b></p>
 
       <div v-if="loading" class="spotify-loader">
         <div class="sonar"></div>
