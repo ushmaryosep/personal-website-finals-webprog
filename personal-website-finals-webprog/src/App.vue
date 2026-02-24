@@ -46,6 +46,8 @@
           </div>
         </div>
       </section>
+
+      <button v-if="!showPoster" @click="showResources = true" class="resource-trigger">📜 Credits</button>
     </div>
 
     <transition name="zoom-in">
@@ -90,6 +92,10 @@
     </transition>
 
     <transition name="fade">
+      <ResourcesDeck v-if="showResources" @close="showResources = false" />
+    </transition>
+
+    <transition name="fade">
       <div v-if="currentView === 'menu'" class="menu-screen-final">
         <div class="menu-nav-container">
           <h1 class="menu-header">WELCOME TO THE CAPTAIN'S DECK</h1>
@@ -120,6 +126,7 @@ import CaptainsTale from './components/CaptainsTale.vue'
 import GrandLineTraining from './components/GrandLineTraining.vue'
 import CaptainsSoundtrack from './components/CaptainsSoundtrack.vue'
 import MessengerDeck from './components/MessengerDeck.vue'
+import ResourcesDeck from './components/ResourcesDeck.vue' // ADDED
 
 export default {
   name: 'App',
@@ -129,12 +136,14 @@ export default {
     CaptainsTale, 
     GrandLineTraining,
     CaptainsSoundtrack,
-    MessengerDeck
+    MessengerDeck,
+    ResourcesDeck // ADDED
   },
   data() {
     return {
       showPoster: false, isLoading: false, isNullifying: false,
       currentView: 'main', currentImgIndex: 0, isLightboxOpen: false,
+      showResources: false, // ADDED
       carouselTimer: null,
       carouselImages: [
         'https://raw.githubusercontent.com/ushmaryosep/personal-website-finals-webprog/main/assets(gif%2C%20png%2C%20jpg)/mypic1.png',
@@ -170,7 +179,6 @@ export default {
 </script>
 
 <style>
-/* Style section remains identical as no links were present in the CSS */
 /* 1. GLOBAL STYLES */
 * { 
   margin: 0; padding: 0; box-sizing: border-box; 
@@ -181,6 +189,26 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Oswald:wght@300;500;700&family=Luckiest+Guy&display=swap');
 
 body { background-color: #000; overflow: hidden; font-family: 'Oswald', sans-serif; color: white; }
+
+/* NEW BUTTON STYLE */
+.resource-trigger {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0,0,0,0.6);
+  border: 1px solid #f4d03f;
+  color: #f4d03f;
+  padding: 5px 15px;
+  font-family: 'Oswald';
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+.resource-trigger:hover {
+  background: #f4d03f;
+  color: #000;
+}
 
 /* 2. BACKGROUND ENGINE */
 .bg-container { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2; }
